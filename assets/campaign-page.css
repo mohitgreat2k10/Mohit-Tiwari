@@ -5,15 +5,7 @@
    Color values are set as CSS custom properties on :root
    by campaign-banner.liquid, driven by theme customizer
    settings, so this file never hardcodes brand colors.
-
-   NOTE: Converted from Horizon (1rem = 16px) to Dawn
-   (1rem = 10px, via the 62.5% root trick). Every rem value
-   below has been multiplied by 1.6 vs. the Horizon source
-   so pixel sizes render identically. px/%/em values are
-   unchanged as they don't depend on root font-size.
    ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap');
-
 :root{
   --cp-ink:#111111;
   --cp-paper:#ffffff;
