@@ -19,6 +19,7 @@
         "banner_image": "shopify://shop_images/Group_1000008197.png",
         "heading": "The Gift Guide",
         "subtext": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+        "subtext_small": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>",
         "button_label": "Shop Now",
         "button_link": "",
         "ink_color": "#111111",
@@ -34,7 +35,7 @@
         "product-1": {
           "type": "product",
           "settings": {
-            "product": "ocean-blue-shirt",
+            "product": "black-leather-bag",
             "badge_position": "1"
           }
         },
@@ -69,7 +70,7 @@
         "product-4": {
           "type": "product",
           "settings": {
-            "product": "classic-varsity-top",
+            "product": "dark-denim-top",
             "badge_position": "4"
           }
         }
@@ -84,6 +85,7 @@
       ],
       "settings": {
         "strip_text": "Sustainable, ethically made clothes in sizes XXS to 6XL",
+        "strip_text_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR",
         "strip_bg_color": "#f4f4f2",
         "heading": "Tisso vison in the wild",
         "add_to_cart_label": "Add to cart"
