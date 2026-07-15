@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -27,49 +36,85 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/Group_1000008197.png",
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
         "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "campaign_gallery_q3gGLH": {
+      "type": "campaign-gallery",
+      "blocks": {
+        "product_HEC7XD": {
+          "type": "product",
+          "settings": {
+            "product": "black-leather-bag",
+            "badge_position": "1"
+          }
+        },
+        "product_iaDfgw": {
+          "type": "product",
+          "settings": {
+            "product": "blue-silk-tuxedo",
+            "badge_position": "2"
+          }
+        },
+        "product_hREztp": {
+          "type": "product",
+          "settings": {
+            "product": "chequered-red-shirt",
+            "badge_position": "3"
+          }
+        },
+        "product_MTwkwz": {
+          "type": "product",
+          "settings": {
+            "product": "classic-leather-jacket",
+            "badge_position": "4"
+          }
+        },
+        "product_Tp9QaK": {
+          "type": "product",
+          "settings": {
+            "product": "classic-varsity-top",
+            "badge_position": "5"
+          }
+        },
+        "product_QKNLKe": {
+          "type": "product",
+          "settings": {
+            "product": "dark-denim-top",
+            "badge_position": "6"
+          }
+        }
+      },
+      "block_order": [
+        "product_HEC7XD",
+        "product_iaDfgw",
+        "product_hREztp",
+        "product_MTwkwz",
+        "product_Tp9QaK",
+        "product_QKNLKe"
+      ],
+      "name": "Campaign gallery",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "strip_text": "Sustainable, ethically made clothes in sizes XXS to 6XL",
+        "strip_text_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR",
+        "strip_bg_color": "#f4f4f2",
+        "heading": "Tisso vison in the wild",
+        "add_to_cart_label": "Add to cart"
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "campaign_gallery_q3gGLH"
   ]
 }
