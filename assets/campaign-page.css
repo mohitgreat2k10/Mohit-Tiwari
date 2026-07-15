@@ -385,20 +385,36 @@
 .cp-qv-section{ padding: 2.4rem 0 0 0; } /* was 1.5rem 0 0 0 */
 .cp-qv-label{ font-size: 1.28rem; font-weight: 600; margin-bottom: .96rem; text-transform: capitalize; } /* was .8rem / .6rem */
 
-.cp-qv-swatches{ display: flex; border: 1px solid #d8d8d6; flex-wrap: wrap; }
-.cp-qv-swatch{
-  flex: 1 1 auto;
-  min-width: 60px;
-  text-align: center;
-  padding: 1.36rem .8rem; /* was .85rem .5rem */
-  font-size: 1.52rem; /* was .95rem */
-  cursor: pointer;
-  user-select: none;
-  background: #fff;
-  border-right: 1px solid #d8d8d6;
-  transition: background .15s ease, color .15s ease;
+.cp-qv-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #000;
 }
-.cp-qv-swatch:last-child{ border-right: none; }
+
+.cp-qv-swatch {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 12px 16px 12px 22px;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-right: 1px solid #9b9b94;
+}
+
+.cp-qv-swatch:last-child {
+  border-right: none;
+}
+
+.cp-color-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  display: block;
+  border-right:1px solid;
+}
 .cp-qv-swatch.is-active{ background: var(--cp-ink); color: #fff; }
 .cp-qv-swatch.is-unavailable{ opacity: .35; text-decoration: line-through; }
 
