@@ -1,0 +1,210 @@
+{{ 'campaign-page.css' | asset_url | stylesheet_tag }}
+{{ 'campaign-page.js' | asset_url | script_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .cp-strip{
+    background: {{ section.settings.strip_bg_color }};
+  }
+</style>
+
+<div class="cp">
+
+  {% comment %} ===================== STRIP BANNER ===================== {% endcomment %}
+  {% if section.settings.strip_text != blank %}
+    <div class="cp-strip strip_text_desktop">{{ section.settings.strip_text | escape }}</div>
+  {% endif %}
+  {% if section.settings.strip_text_mobile != blank %}
+    <div class="cp-strip strip_text_mobile">{{ section.settings.strip_text_mobile | escape }}</div>
+  {% endif %}
+
+  {% comment %} ===================== GALLERY ===================== {% endcomment %}
+  <section class="cp-gallery">
+    <div class="container">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="cp-gallery-heading">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+
+      <div class="cp-gallery-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'product' %}
+            {% assign product = block.settings.product %}
+
+            {% if product %}
+              {% assign display_desc = product.description | strip_html | truncatewords: 30 %}
+              {% assign display_img = product.featured_image %}
+
+              <div
+                class="cp-gallery-item"
+                data-product-card
+                data-product-id="{{ product.id }}"
+                data-title="{{ product.title | escape }}"
+                data-price="{{ product.price | money }}"
+                data-desc="{{ display_desc | escape }}"
+                data-img="{{ display_img | image_url: width: 900 }}"
+                {{ block.shopify_attributes }}
+              >
+                {% if display_img %}
+                  <img
+                    src="{{ display_img | image_url: width: 600 }}"
+                    srcset="{{ display_img | image_url: width: 400 }} 400w, {{ display_img | image_url: width: 600 }} 600w, {{ display_img | image_url: width: 900 }} 900w"
+                    sizes="(min-width: 768px) 33vw, 50vw"
+                    alt="{{ display_img.alt | default: product.title | escape }}"
+                    loading="lazy"
+                    width="600" height="750"
+                  >
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+
+                <div class="cp-plus-dot cp-dot-pos-{{ block.settings.badge_position }}">+</div>
+
+                <script type="application/json" class="cp-product-json">
+                  {
+                    "options": [
+                      {% unless product.has_only_default_variant %}
+                        {% for option in product.options_with_values %}
+                          {
+                            "name": {{ option.name | json }},
+                            "values": {{ option.values | json }}
+                          }{% unless forloop.last %},{% endunless %}
+                        {% endfor %}
+                      {% endunless %}
+                    ],
+                    "variants": [
+                      {% for variant in product.variants %}
+                        {
+                          "id": {{ variant.id | json }},
+                          "option1": {{ variant.option1 | json }},
+                          "option2": {{ variant.option2 | json }},
+                          "option3": {{ variant.option3 | json }},
+                          "available": {{ variant.available | json }},
+                          "price_formatted": {{ variant.price | money | json }}
+                        }{% unless forloop.last %},{% endunless %}
+                      {% endfor %}
+                    ]
+                  }
+                </script>
+              </div>
+
+            {% elsif request.design_mode %}
+              <div class="cp-gallery-item cp-gallery-item--empty" {{ block.shopify_attributes }}>
+                Select a product in section settings
+              </div>
+            {% endif %}
+
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+{% comment %} ===================== QUICK VIEW MODAL ===================== {% endcomment %}
+<div class="cp-qv-overlay" id="cpQvOverlay">
+  <div class="cp-qv-modal" role="dialog" aria-modal="true" aria-labelledby="cpQvTitle">
+    <button class="cp-qv-close" id="cpQvClose" type="button" aria-label="Close">&times;</button>
+
+    <div class="cp-qv-body">
+      <div class="cp-qv-image">
+        <img id="cpQvImg" src="" alt="">
+      </div>
+      <div class="cp-qv-info">
+        <div class="cp-qv-title" id="cpQvTitle"></div>
+        <div class="cp-qv-price" id="cpQvPrice"></div>
+        <div class="cp-qv-desc" id="cpQvDesc"></div>
+      </div>
+    </div>
+
+    <div id="cpQvOptions"></div>
+
+    <div class="cp-qv-section cp-qv-footer-pad">
+      <button class="btn cp-btn-shutter cp-qv-cart" id="cpQvCartBtn" type="button" disabled>
+        <span>{{ section.settings.add_to_cart_label | default: 'Add to cart' }}</span> <span>→</span>
+      </button>
+      <div class="cp-qv-status" id="cpQvStatus"></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Campaign gallery",
+  "class": "campaign_gallery_section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "strip_text",
+      "label": "Strip banner text",
+      "default": "Sustainable, ethically made clothes in sizes XXS to 6XL"
+    },
+    {
+      "type": "text",
+      "id": "strip_text_mobile",
+      "label": "Strip banner text Mobile",
+      "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+    },
+    {
+      "type": "color",
+      "id": "strip_bg_color",
+      "label": "Strip banner background",
+      "default": "#f4f4f2"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Gallery heading (optional)",
+      "default": "Tisso vison in the wild"
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_label",
+      "label": "Add to cart button label",
+      "default": "Add to cart"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Title, price, description, image, options and variants are all pulled live from this product, so the quick-view popup can never fall out of sync."
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "\"+\" badge position",
+          "options": [
+            { "value": "1", "label": "Center left" },
+            { "value": "2", "label": "Center right" },
+            { "value": "3", "label": "Upper right" },
+            { "value": "4", "label": "Upper left" },
+            { "value": "5", "label": "Top center" },
+            { "value": "6", "label": "Lower left" }
+          ],
+          "default": "1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Campaign gallery",
+      "blocks": [
+        { "type": "product", "settings": { "badge_position": "1" } },
+        { "type": "product", "settings": { "badge_position": "2" } },
+        { "type": "product", "settings": { "badge_position": "3" } },
+        { "type": "product", "settings": { "badge_position": "4" } },
+        { "type": "product", "settings": { "badge_position": "5" } },
+        { "type": "product", "settings": { "badge_position": "6" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
