@@ -9,46 +9,6 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/Group_1000008197.png",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "campaign_gallery_q3gGLH": {
       "type": "campaign-gallery",
       "blocks": {
@@ -111,10 +71,31 @@
         "heading": "Tisso vison in the wild",
         "add_to_cart_label": "Add to cart"
       }
+    },
+    "campaign_banner_Kzz6Up": {
+      "type": "campaign-banner",
+      "name": "Campaign banner",
+      "settings": {
+        "logo_text": "TISSO VISON",
+        "announcement_text": "Find the ideal gift for your loved ones.",
+        "choose_button_label": "Choose Gift",
+        "choose_button_link": "",
+        "banner_image": "shopify://shop_images/Group_1000008197.png",
+        "heading": "The Gift Guide",
+        "subtext": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+        "subtext_small": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>",
+        "button_label": "Shop Now",
+        "button_link": "",
+        "ink_color": "#111111",
+        "paper_color": "#ffffff",
+        "muted_color": "#5c5c5c",
+        "accent_color": "#f6e94f",
+        "soft_bg_color": "#f4f4f2"
+      }
     }
   },
   "order": [
-    "image_banner",
-    "campaign_gallery_q3gGLH"
+    "campaign_gallery_q3gGLH",
+    "campaign_banner_Kzz6Up"
   ]
 }
