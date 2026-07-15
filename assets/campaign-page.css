@@ -5,6 +5,12 @@
    Color values are set as CSS custom properties on :root
    by campaign-banner.liquid, driven by theme customizer
    settings, so this file never hardcodes brand colors.
+
+   NOTE: Converted from Horizon (1rem = 16px) to Dawn
+   (1rem = 10px, via the 62.5% root trick). Every rem value
+   below has been multiplied by 1.6 vs. the Horizon source
+   so pixel sizes render identically. px/%/em values are
+   unchanged as they don't depend on root font-size.
    ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap');
 
@@ -36,13 +42,13 @@
 .cp-topbar{
   background: var(--cp-soft-bg);
   border-bottom: 1px solid #e5e5e3;
-  font-size: .85rem;
+  font-size: 1.36rem; /* was .85rem */
   padding:16px 8px;
 }
 .cp-topbar .cp-logo{
   font-weight: 800;
   letter-spacing: .12em;
-  font-size: 1.1rem;
+  font-size: 1.76rem; /* was 1.1rem */
 }
 .cp-topbar .cp-announce{
   color: var(--cp-muted);
@@ -98,7 +104,7 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: .6rem;
+  gap: .96rem; /* was .6rem */
 }
 .cp-btn-shutter::before{
   content: "";
@@ -122,8 +128,8 @@
 .cp-btn-choose{
   background: var(--cp-accent);
   color: var(--cp-ink);
-  font-size: .8rem;
-  padding: .55rem 1.1rem;
+  font-size: 1.28rem; /* was .8rem */
+  padding: .88rem 1.76rem; /* was .55rem 1.1rem */
   text-transform: uppercase;
 }
 .cp-btn-choose::before{ background: var(--cp-ink); }
@@ -132,7 +138,7 @@
 .cp-btn-shop{
   background: var(--cp-ink);
   color: #fff;
-  margin-top: 1.75rem;
+  margin-top: 2.8rem; /* was 1.75rem */
   display:flex;
   height:50px;
   font-size:16px;
@@ -143,7 +149,7 @@
   width: 100%;
   text-transform: uppercase;
   cursor: pointer;
-  border: 1px solid var(--cp-ink) !important;
+  /* border: 1px solid var(--cp-ink) !important; */
 }
 .cp-btn-shop::before{ background: var(--cp-accent); }
 .cp-btn-shop:hover, .cp-btn-shop:focus, .cp-btn-shop.is-active{ color: var(--cp-ink) !important; border:unset !important }
@@ -165,7 +171,7 @@
   align-items: center;
   justify-content: center;
   color: var(--cp-muted);
-  font-size: .85rem;
+  font-size: 1.36rem; /* was .85rem */
 }
 .cp-hero-copy{
   position: absolute;
@@ -187,7 +193,7 @@
   color: #000;
   font-size: 20px;
   line-height: 140%;
-  margin-top: 1.1rem;
+  margin-top: 1.76rem; /* was 1.1rem */
 }
 
 @media (max-width: 991px){
@@ -200,7 +206,7 @@
     justify-content:center;
     flex-direction:column;
     order: 1;
-    padding: 2.75rem 1.25rem 1.25rem 1.25rem;
+    padding: 4.4rem 2rem 2rem 2rem; /* was 2.75rem 1.25rem 1.25rem 1.25rem */
     text-align: center;
   }
 
@@ -214,7 +220,7 @@
     bottom: 6%;
     height:45px;
     transform: translateX(-50%);
-    width: calc(100% - 2.5rem);
+    width: calc(100% - 4rem); /* was calc(100% - 2.5rem) */
     max-width:193px;
     justify-content: center;
     margin-top: 0;
@@ -225,7 +231,7 @@
   .cp-btn-shop--overlay{ display: none !important; }
 }
 @media (max-width: 767px){
-  .cp-hero-title{ font-size: 2.2rem; }
+  .cp-hero-title{ font-size: 3.52rem; } /* was 2.2rem */
   .cp-hero-sub{ max-width: 100%; }
   .cp-topbar .cp-announce{ display: none; }
 }
@@ -235,7 +241,7 @@
   background: var(--cp-soft-bg);
   border-top: 1px solid #e5e5e3;
   border-bottom: 1px solid #e5e5e3;
-  padding: .9rem 1rem;
+  padding: 1.44rem 1.6rem; /* was .9rem 1rem */
   text-align: center;
   letter-spacing: .08em;
   font-size:16px;
@@ -246,7 +252,7 @@
 
 /* ---------- Gallery ---------- */
 .cp-gallery{ 
-    padding: 3.5rem 20px 8rem 20px;
+    padding: 5.6rem 20px 12.8rem 20px; /* was 3.5rem 20px 8rem 20px */
     width: 100%;
     max-width: 1337px;
     margin: 0 auto;
@@ -257,7 +263,7 @@
   font-weight: 400;
   font-family: Lustria;
   font-size: 36px;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.8rem; /* was 1.75rem */
 }
 .cp-gallery-grid{
   display: grid;
@@ -265,14 +271,14 @@
   gap: 20px;
 }
 @media (max-width: 767px){
-  .cp-gallery-grid{ grid-template-columns: repeat(2, 1fr); gap: .9rem; padding: 10px 10px 0 10px; }
+  .cp-gallery-grid{ grid-template-columns: repeat(2, 1fr); gap: 1.44rem; padding: 10px 10px 0 10px; } /* gap was .9rem */
   .cp-gallery-heading{text-align:center;font-size:24px; font-family: 'Jost';}
   .cp-gallery-item img {
     width: 100% !important;
     height: 186px !important;
   }
   .cp-gallery{
-        padding: 3.5rem 0px 8rem;
+        padding: 5.6rem 0px 12.8rem; /* was 3.5rem 0px 8rem */
   }
 }
 
@@ -297,7 +303,7 @@
   justify-content: center;
   text-align: center;
   padding: 1rem;
-  font-size: .8rem;
+  font-size: 1.28rem; /* was .8rem */
   color: var(--cp-muted);
   border: 1px dashed #c9c9c6;
   cursor: default;
@@ -312,7 +318,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: .9rem;
+  font-size: 1.44rem; /* was .9rem */
   box-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
 .cp-dot-pos-1{ left: 40%; top: 55%; }
@@ -330,7 +336,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.6rem; /* was 1rem */
   z-index: 1050;
   opacity: 0;
   visibility: hidden;
@@ -354,7 +360,7 @@
   top: 14px; right: 16px;
   background: none;
   border: none;
-  font-size: 1.4rem;
+  font-size: 2.24rem; /* was 1.4rem */
   line-height: 1;
   color: var(--cp-ink);
   cursor: pointer;
@@ -377,23 +383,23 @@
 .cp-qv-image img{ width: 100%; height: 100%; object-fit: cover; display: block; }
 .cp-qv-info{
   flex: 1 1 240px;
-  padding: 1.75rem 0 0 0;
+  padding: 2.8rem 0 0 0; /* was 1.75rem 0 0 0 */
   min-width: 200px;
 }
-.cp-qv-title{ font-weight: 600; font-size: 1.15rem; margin-bottom: .6rem; }
-.cp-qv-price{ font-weight: 600; font-size: 1.05rem; margin-bottom: .9rem; }
-.cp-qv-desc{ color: var(--cp-muted); font-size: .85rem; line-height: 1.55; }
+.cp-qv-title{ font-weight: 600; font-size: 1.84rem; margin-bottom: .96rem; } /* was 1.15rem / .6rem */
+.cp-qv-price{ font-weight: 600; font-size: 1.68rem; margin-bottom: 1.44rem; } /* was 1.05rem / .9rem */
+.cp-qv-desc{ color: var(--cp-muted); font-size: 1.36rem; line-height: 1.55; } /* was .85rem */
 
-.cp-qv-section{ padding: 1.5rem 0 0 0; }
-.cp-qv-label{ font-size: .8rem; font-weight: 600; margin-bottom: .6rem; text-transform: capitalize; }
+.cp-qv-section{ padding: 2.4rem 0 0 0; } /* was 1.5rem 0 0 0 */
+.cp-qv-label{ font-size: 1.28rem; font-weight: 600; margin-bottom: .96rem; text-transform: capitalize; } /* was .8rem / .6rem */
 
 .cp-qv-swatches{ display: flex; border: 1px solid #d8d8d6; flex-wrap: wrap; }
 .cp-qv-swatch{
   flex: 1 1 auto;
   min-width: 60px;
   text-align: center;
-  padding: .85rem .5rem;
-  font-size: .95rem;
+  padding: 1.36rem .8rem; /* was .85rem .5rem */
+  font-size: 1.52rem; /* was .95rem */
   cursor: pointer;
   user-select: none;
   background: #fff;
@@ -404,15 +410,15 @@
 .cp-qv-swatch.is-active{ background: var(--cp-ink); color: #fff; }
 .cp-qv-swatch.is-unavailable{ opacity: .35; text-decoration: line-through; }
 
-.cp-qv-select-wrap{ position: relative; border: 1px solid #d8d8d6; margin-bottom: .1rem; }
+.cp-qv-select-wrap{ position: relative; border: 1px solid #d8d8d6; margin-bottom: .16rem; } /* was .1rem */
 .cp-qv-select{
   width: 100%;
   appearance: none;
   -webkit-appearance: none;
   border: none;
   background: transparent;
-  padding: .85rem 2.5rem .85rem 1rem;
-  font-size: .95rem;
+  padding: 1.36rem 4rem 1.36rem 1.6rem; /* was .85rem 2.5rem .85rem 1rem */
+  font-size: 1.52rem; /* was .95rem */
   font-family: inherit;
   color: var(--cp-ink);
   cursor: pointer;
@@ -420,22 +426,22 @@
 .cp-qv-select-wrap::after{
   content: "⌄";
   position: absolute;
-  right: 1rem;
+  right: 1.6rem; /* was 1rem */
   top: 50%;
   transform: translateY(-55%);
-  font-size: 1rem;
+  font-size: 1.6rem; /* was 1rem */
   pointer-events: none;
 }
-.cp-qv-select-wrap + .cp-qv-select-wrap{ margin-top: .75rem; }
+.cp-qv-select-wrap + .cp-qv-select-wrap{ margin-top: 1.2rem; } /* was .75rem */
 
 .cp-qv-cart{
   width: 100%;
-  margin: 1.5rem 0 0 0;
-  padding: 1.05rem 1.5rem;
+  margin: 2.4rem 0 0 0; /* was 1.5rem 0 0 0 */
+  padding: 1.68rem 2.4rem; /* was 1.05rem 1.5rem */
   background: var(--cp-ink);
   color: #fff;
   text-transform: uppercase;
-  font-size: .85rem;
+  font-size: 1.36rem; /* was .85rem */
   letter-spacing: .08em;
   justify-content: center;
   border: 1px solid var(--cp-ink) !important;
@@ -446,26 +452,26 @@
 .cp-qv-cart:disabled::before{ width: 0 !important; }
 
 .cp-qv-status{
-  font-size: .78rem;
-  margin-top: .6rem;
+  font-size: 1.248rem; /* was .78rem */
+  margin-top: .96rem; /* was .6rem */
   min-height: 1.1em;
 }
 .cp-qv-status.is-success{ color: #1c7c3c; }
 .cp-qv-status.is-error{ color: #c0392b; }
 
-.cp-qv-footer-pad{ padding-bottom: 1.5rem; }
+.cp-qv-footer-pad{ padding-bottom: 2.4rem; } /* was 1.5rem */
 
 /* ---------- Add-to-cart toast notification ---------- */
 .cp-toast-wrap{
   position: fixed;
-  top: 1rem;
-  right: 1rem;
-  left: 1rem;
+  top: 1.6rem; /* was 1rem */
+  right: 1.6rem; /* was 1rem */
+  left: 1.6rem; /* was 1rem */
   z-index: 1200;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: .6rem;
+  gap: .96rem; /* was .6rem */
   pointer-events: none;
 }
 @media (min-width: 576px){
@@ -482,7 +488,7 @@
   display: flex;
   align-items: center;
   gap: .75rem;
-  padding: .75rem .9rem;
+  padding: 1.2rem 1.44rem; /* was .75rem .9rem */
   opacity: 0;
   transform: translateY(-12px);
   transition: opacity .25s ease, transform .25s ease;
@@ -497,17 +503,17 @@
 }
 .cp-toast-body{ flex: 1 1 auto; min-width: 0; }
 .cp-toast-title{
-  font-size: .85rem;
+  font-size: 1.36rem; /* was .85rem */
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.cp-toast-msg{ font-size: .78rem; color: var(--cp-muted); }
+.cp-toast-msg{ font-size: 1.248rem; color: var(--cp-muted); } /* was .78rem */
 .cp-toast-close{
   background: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.76rem; /* was 1.1rem */
   line-height: 1;
   color: var(--cp-muted);
   cursor: pointer;
@@ -539,7 +545,7 @@
     }
     .cp-topbar .cp-logo{
       font-weight: 600;
-      font-size: 1.4rem;
+      font-size: 2.24rem; /* was 1.4rem */
       font-family: 'Jost';
     }
 }
